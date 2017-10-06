@@ -1,0 +1,24 @@
+{
+  "name": "vue-pagination-btns",
+  "version": "1.0.0",
+  "description": "Vue pagination buttons mixin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Test'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Onefivefournine/vue-pagination-btns.git"
+  },
+  "keywords": [
+    "Vue",
+    "pagination",
+    "mixin"
+  ],
+  "author": "onefivefournine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Onefivefournine/vue-pagination-btns/issues"
+  },
+  "homepage": "https://github.com/Onefivefournine/vue-pagination-btns#readme"
+}
