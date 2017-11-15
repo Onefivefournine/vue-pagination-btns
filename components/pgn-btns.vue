@@ -2,31 +2,26 @@
   <div class="pagination"
     v-if="pgnSets && pages && pages.length>1">
     <button type="button"
-      class="btn btn-secondary"
-      :class="{'pgn-hidden':!hasPrev}"
+      :class="inactiveClassName+(!hasPrev?'pgn-hidden':'')"
       @click="goToPage({limit:pgnSets.limit,offset:0})">
       &laquo;
     </button>
     <button type="button"
-      class="btn btn-secondary"
-      :class="{'pgn-hidden':!hasPrev}"
+      :class="inactiveClassName+(!hasPrev?'pgn-hidden':'')"
       @click="prevPage()">
       &lsaquo;
     </button>
     <button type="button"
       v-for="page in pages"
-      :class="pgnSets.offset == page.offset?'btn-primary':'btn-secondary'"
-      @click="goToPage(page)"
-      class="btn">{{(page.offset/page.limit)+1}}</button>
+      :class="pgnSets.offset == page.offset?activeClassName:inactiveClassName"
+      @click="goToPage(page)">{{(page.offset/page.limit)+1}}</button>
     <button type="button"
-      class="btn btn-secondary"
-      :class="{'pgn-hidden':!hasNext}"
+      :class="inactiveClassName+(!hasNext?' pgn-hidden':'')"
       @click="nextPage()">
       &rsaquo;
     </button>
     <button type="button"
-      class="btn btn-secondary"
-      :class="{'pgn-hidden':!hasNext}"
+      :class="inactiveClassName+(!hasNext?' pgn-hidden':'')"
       @click="goToPage({limit:pgnSets.limit,offset:pgnSets.limit*(totalPages-1)})">
       &raquo;
     </button>
@@ -39,6 +34,14 @@ function clone( obj ) {
 
 export default {
   props: {
+    inactiveClassName: {
+      type: String,
+      default: 'btn btn-light'
+    },
+    activeClassName: {
+      type: String,
+      default: 'btn btn-primary'
+    },
     pgnSets: {
       type: Object,
       default: () => ( { limit: 5, offset: 0 } )

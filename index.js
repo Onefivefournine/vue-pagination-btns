@@ -8,7 +8,7 @@ function pgnSetsFactory() {
     }
 }
 
-export default {
+const pgn = {
     components: {
         pgnBtns
     },
@@ -18,3 +18,4 @@ export default {
         }
     }
 }
+export default pgn
