@@ -2,12 +2,12 @@
   <div class="pagination"
     v-if="pgnSets && pages && pages.length>1">
     <button type="button"
-      :class="inactiveClassName+(!hasPrev?'pgn-hidden':'')"
+      :class="inactiveClassName+(!hasPrev?' pgn-hidden':'')"
       @click="goToPage({limit:pgnSets.limit,offset:0})">
       &laquo;
     </button>
     <button type="button"
-      :class="inactiveClassName+(!hasPrev?'pgn-hidden':'')"
+      :class="inactiveClassName+(!hasPrev?' pgn-hidden':'')"
       @click="prevPage()">
       &lsaquo;
     </button>
