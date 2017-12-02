@@ -117,14 +117,16 @@ export default {
   },
 }
 </script>
-<style lang="scss">
+<style>
 .pgn-hidden {
   visibility: hidden !important;
 }
 
 .pagination {
   text-align: center;
-  .btn {
+}
+
+.pagination .btn {
     border-radius: 50%;
     min-width: 45px;
     min-height: 45px;
@@ -132,9 +134,9 @@ export default {
     margin: 0 3px;
     border: none;
     color: #a3a6b2;
-    &-primary {
-      color: #fff
-    }
-  }
+}
+
+.pagination .btn-primary {
+    color: #fff
 }
 </style>
