@@ -124,6 +124,12 @@ export default {
 
 .pagination {
   text-align: center;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
 }
 
 .pagination .btn {
