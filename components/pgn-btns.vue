@@ -13,6 +13,7 @@
     </button>
     <button type="button"
       v-for="page in pages"
+      v-if="pgnSets.total > page.offset || pgnSets.offset == page.offset"
       :class="pgnSets.offset == page.offset?activeClassName:inactiveClassName"
       @click="goToPage(page)">{{(page.offset/page.limit)+1}}</button>
     <button type="button"
@@ -73,7 +74,9 @@ export default {
           this.pgnSets.total >= this.pgnSets.offset + this.pgnSets.limit * 2
         ) { // start
           offset = this.pgnSets.offset + this.pgnSets.limit * ( i - 2 );
-        } else if ( this.pgnSets.total <= ( this.pgnSets.offset + this.pgnSets.limit * 2 ) ) { // end
+        } else if (
+          this.pgnSets.total <= ( this.pgnSets.offset + this.pgnSets.limit * 2 )
+        ) { // end
           offset = this.pgnSets.limit * ( this.totalPages + ( i - this.pagesCount ) );
         } else { // middle
           offset = this.pgnSets.limit * i;
@@ -117,24 +120,32 @@ export default {
   },
 }
 </script>
-<style lang="scss">
+<style>
 .pgn-hidden {
   visibility: hidden !important;
 }
 
 .pagination {
   text-align: center;
-  .btn {
-    border-radius: 50%;
-    min-width: 45px;
-    min-height: 45px;
-    font-size: 1.5em;
-    margin: 0 3px;
-    border: none;
-    color: #a3a6b2;
-    &-primary {
-      color: #fff
-    }
-  }
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination .btn {
+  border-radius: 50%;
+  min-width: 45px;
+  min-height: 45px;
+  font-size: 1.5em;
+  margin: 0 3px;
+  border: none;
+  color: #a3a6b2;
+}
+
+.pagination .btn-primary {
+  color: #fff
 }
 </style>
