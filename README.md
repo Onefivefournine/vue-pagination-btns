@@ -25,9 +25,11 @@ import pgn from 'vue-pagination-btns';
 const app = new Vue({
 	mixins:[pgn],
 	methods:{
-		getData(params){
-			// some API request using params
-		}
+	    async getList(params) {
+	        let {items, total} = await ApiService.get(params)
+	        this.items = items;
+		this.pgnSets.total = total;
+	    }
 	}
 })
 ```
